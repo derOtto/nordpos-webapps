@@ -14,6 +14,8 @@ public class HomeActionBean extends BaseActionBean {
 
     private static final String HOME = "/WEB-INF/jsp/home.jsp";
     private static final String INFO = "/WEB-INF/jsp/info.jsp";
+    private String receiptProperty;
+    private String displayProperty;
 
     @DefaultHandler
     public Resolution home() {
@@ -21,6 +23,9 @@ public class HomeActionBean extends BaseActionBean {
     }
 
     public Resolution info() {
+        receiptProperty = getServletContext().getInitParameter("machine.printer");
+        displayProperty = getServletContext().getInitParameter("machine.display");
+
         return new ForwardResolution(INFO);
     }
 
@@ -42,5 +47,13 @@ public class HomeActionBean extends BaseActionBean {
 
     public String getOperationSystem() {
         return System.getProperty("os.name") + " " + System.getProperty("os.version") + " " + System.getProperty("os.arch");
+    }
+
+    public String getReceiptProperty() {
+        return receiptProperty;
+    }
+
+    public String getDisplayProperty() {
+        return displayProperty;
     }
 }

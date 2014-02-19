@@ -74,6 +74,34 @@
                 </div>
             </div>
         </div>
+        <div data-role="collapsible"
+             data-theme="d"
+             data-content-theme="d">
+            <h3><stripes:label name="label.device.properties" /></h3>
+            <div class="ui-grid-a ui-responsive">
+                <div class="ui-block-a">
+                    <div class="ui-body ui-body-c">
+                        <stripes:label name="label.receipt.printer" />
+                    </div>
+                </div>
+
+                <div class="ui-block-b">
+                    <div class="ui-body ui-body-d">
+                        <c:out value="${actionBean.receiptProperty}" />
+                    </div>
+                </div>
+                <div class="ui-block-a">
+                    <div class="ui-body ui-body-c">
+                        <stripes:label name="label.display" />
+                    </div>
+                </div>
+                <div class="ui-block-b">
+                    <div class="ui-body ui-body-d">
+                        <c:out value="${actionBean.displayProperty}" />
+                    </div>
+                </div>
+            </div>
+        </div>
     </stripes:layout-component>
 
     <stripes:layout-component name="footer">

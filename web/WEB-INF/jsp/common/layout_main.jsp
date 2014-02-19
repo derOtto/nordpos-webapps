@@ -16,7 +16,7 @@
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
-            <title>${title} - Raspberry Pi Mobi Servlet</title>
+            <title>${title} - NORD POS Mobi Servlet</title>
             <link rel="stylesheet" href="<c:url value='/css/jquery.mobile-1.3.2.min.css'/>" />
             <link rel="icon" type="image/png" href="<c:url value='/icon.png' />" />
             <script src="<c:url value='/js/jquery-1.9.1.min.js'/>"></script>

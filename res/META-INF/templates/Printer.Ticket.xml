@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<output xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+        xsi:noNamespaceSchemaLocation="Schema.Printer.xsd">
+
+    <display>
+        <line>
+            <text>Welcome,</text>
+        </line>
+        <line>
+            <text align="center" length="20">${this.getGuestName()}!</text>
+        </line>
+    </display>
+    <ticket>
+        <line size="50">
+            <text align="center" length="10">NORD POS</text>
+        </line>
+
+        <line size="2">
+            <text align="center" length="42">Mobi Device Servlet</text>
+        </line>
+        <line/>
+        <line>
+            <text align="left" length="10">Welcome,</text>
+            <text align="center" length="30" underline="slim" bold="true" size="1">${this.getGuestName()}</text>
+            <text align="right" length="2">!</text>
+        </line>
+    </ticket>
+</output>

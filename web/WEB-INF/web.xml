@@ -5,7 +5,7 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
                              http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
-    <display-name>PiMobiServlet</display-name>
+    <display-name>NordPOSMobiServlet</display-name>
 
     <!-- STRIPES LOCALIZATION PARAMETERS -->
     <context-param>
@@ -13,24 +13,23 @@
         <param-value>StripesResources</param-value>
     </context-param>
 
-<!--
-        <context-param>
-            <param-name>db.driver</param-name>
-            <param-value>org.apache.derby.jdbc.ClientDriver</param-value>
-        </context-param>
-        <context-param>
-            <param-name>db.URL</param-name>
-            <param-value>jdbc:derby://localhost:1527/nordpos-db</param-value>
-        </context-param>
-            <context-param>
-            <param-name>db.user</param-name>
-            <param-value>nord</param-value>
-        </context-param>
-            <context-param>
-            <param-name>db.password</param-name>
-            <param-value>nord</param-value>
-        </context-param>
--->
+
+    <context-param>
+        <param-name>machine.printer</param-name>
+        <param-value>plaintext:file,/home/user/print.text,unix</param-value>
+        <!--
+        <param-value>epson:file,/home/user/print.bin</param-value>
+        <param-value>epson:serial,/dev/tty0,115200,8,1,none</param-value>
+        <param-value>epson:file,/dev/usb/lp0</param-value>
+        -->
+    </context-param>
+    <context-param>
+        <param-name>machine.display</param-name>
+        <!--
+        <param-value>epson:file,/home/user/display.bin</param-value>
+        <param-value>epson:file,/dev/ttyUSB0</param-value>
+        -->
+    </context-param>
 
     <filter>
         <filter-name>StripesFilter</filter-name>
