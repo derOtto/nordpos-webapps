@@ -50,10 +50,18 @@ public class HomeActionBean extends BaseActionBean {
     }
 
     public String getReceiptProperty() {
-        return receiptProperty;
+        if (receiptProperty == null || receiptProperty.isEmpty()) {
+            return "label.receipt.none";
+        } else {
+            return receiptProperty;
+        }
     }
 
     public String getDisplayProperty() {
-        return displayProperty;
+        if (displayProperty == null || displayProperty.isEmpty()) {
+            return "label.display.none";
+        } else {
+            return displayProperty;
+        }
     }
 }

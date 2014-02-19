@@ -23,13 +23,13 @@
         <param-value>epson:file,/dev/usb/lp0</param-value>
         -->
     </context-param>
+<!--
     <context-param>
         <param-name>machine.display</param-name>
-        <!--
         <param-value>epson:file,/home/user/display.bin</param-value>
         <param-value>epson:file,/dev/ttyUSB0</param-value>
-        -->
     </context-param>
+-->
 
     <filter>
         <filter-name>StripesFilter</filter-name>
