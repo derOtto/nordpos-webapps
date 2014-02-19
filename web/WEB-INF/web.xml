@@ -39,7 +39,7 @@
         <!-- STRIPES ACTIONS -->
         <init-param>
             <param-name>ActionResolver.Packages</param-name>
-            <param-value>mobi.piservlet</param-value>
+            <param-value>mobi.nordpos.device</param-value>
         </init-param>
 
         <!-- STRIPES LOCALES -->

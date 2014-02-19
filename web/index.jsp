@@ -13,7 +13,7 @@
 
 <html>
 <head>
-    <title>Raspberry Pi Mobi Servlet - Loading...</title>
+    <title>NORD POS Mobi Servlet - Loading...</title>
 </head>
 <body>
     <jsp:forward page="/Home.action" />

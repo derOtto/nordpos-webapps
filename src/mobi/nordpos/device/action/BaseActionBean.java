@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2014 Nord Trading Ltd.
  */
-package mobi.piservlet.action;
+package mobi.nordpos.device.action;
 
 import javax.servlet.ServletContext;
 import net.sourceforge.stripes.action.ActionBean;
