@@ -78,7 +78,7 @@
             </div>
         </div>
 
-        <%--<div data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-collapsed="false">
+        <div data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-collapsed="true">
             <h4><fmt:message key="label.application.parameters" /></h4>
             <div class="ui-grid-a ui-responsive">
                 <div class="ui-block-a">
@@ -91,19 +91,8 @@
                         <c:out value="${actionBean.application.toString()}" />
                     </div>
                 </div>
-                <div class="ui-block-a">
-                    <div class="ui-body ui-body-c">
-                        <fmt:message key="label.barcode.prefix" />
-                    </div>
-                </div>
-                <div class="ui-block-b">
-                    <div class="ui-body ui-body-c">
-                        <c:out value="${actionBean.barcodePrefix}" />
-                    </div>
-                </div>    
-
             </div>
-        </div>--%>
+        </div>
     </stripes:layout-component>
 
     <stripes:layout-component name="footer">

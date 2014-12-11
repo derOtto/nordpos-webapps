@@ -15,14 +15,22 @@
  */
 package mobi.nordpos.webapps.action;
 
+import com.j256.ormlite.jdbc.JdbcConnectionSource;
+import com.j256.ormlite.support.ConnectionSource;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
+import mobi.nordpos.webapps.dao.ormlite.ApplicationPersist;
 import mobi.nordpos.webapps.ext.MobileActionBeanContext;
 import mobi.nordpos.webapps.ext.MyLocalePicker;
+import mobi.nordpos.webapps.model.Application;
 import net.sourceforge.stripes.action.ActionBean;
 import net.sourceforge.stripes.action.ActionBeanContext;
 import net.sourceforge.stripes.controller.StripesFilter;
+import net.sourceforge.stripes.validation.SimpleError;
+import net.sourceforge.stripes.validation.ValidationErrors;
+import net.sourceforge.stripes.validation.ValidationMethod;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,10 +39,17 @@ import org.slf4j.LoggerFactory;
  */
 public abstract class BaseActionBean implements ActionBean {
 
+    private static final String DB_URL = "db.URL";
+    private static final String DB_USER = "db.user";
+    private static final String DB_PASSWORD = "db.password";
+    private static final String DB_APP = "db.application.id";
+    private static final String BARCODE_PREFIX = "barcode.prefix";
+
     private MobileActionBeanContext context;
+    private Application application;
 
     Logger logger = LoggerFactory.getLogger(this.getClass().getName());
-
+    ConnectionSource connection;
 
     @Override
     public MobileActionBeanContext getContext() {
@@ -89,5 +104,50 @@ public abstract class BaseActionBean implements ActionBean {
                 .getFormFieldBundle(getContext().getLocale()).getString(key);
     }
 
+    public Application getApplication() {
+        return application;
+    }
+
+    @ValidationMethod
+    public void validateApplicationAvalaible(ValidationErrors errors) {
+        try {
+            application = readApplication(getDataBaseApplication());
+            if (application == null) {
+                errors.add("application.id", new SimpleError(
+                        getLocalizationKey("error.DatabaseNotSupportApplication"), getDataBaseApplication()));
+            }
+        } catch (SQLException ex) {
+            getContext().getValidationErrors().addGlobalError(
+                    new SimpleError(ex.getMessage()));
+        }
+    }
+
+    protected Application readApplication(String id) throws SQLException {
+        try {
+            connection = new JdbcConnectionSource(getDataBaseURL(), getDataBaseUser(), getDataBasePassword());
+            ApplicationPersist applicationDao = new ApplicationPersist(connection);
+            return applicationDao.queryForId(id);
+        } finally {
+            if (connection != null) {
+                connection.close();
+            }
+        }
+    }
+
+    public String getDataBaseURL() {
+        return getContext().getServletContext().getInitParameter(DB_URL);
+    }
+
+    public String getDataBaseUser() {
+        return getContext().getServletContext().getInitParameter(DB_USER);
+    }
+
+    public String getDataBasePassword() {
+        return getContext().getServletContext().getInitParameter(DB_PASSWORD);
+    }
+
+    public String getDataBaseApplication() {
+        return getContext().getServletContext().getInitParameter(DB_APP);
+    }
 
 }

@@ -55,11 +55,11 @@
                     <stripes:errors />
                     <stripes:messages />
                     <stripes:layout-component name="content"/>
-                    <%--<div class="ui-body ui-body-d">
+                    <div class="ui-body ui-body-d">
                         <a href="${actionBean.application.projectURL}">
                             <img src="<c:url value='/image/poweredby-${actionBean.application.id}.png' />" alt="${actionBean.application.toString()}"/>
                         </a>
-                    </div>--%>
+                    </div>
                 </div>
                 <div data-role="footer" class="ui-bar">
                     <div class="ui-btn-left" data-role="controlgroup" data-type="horizontal" data-mini="true">                        
