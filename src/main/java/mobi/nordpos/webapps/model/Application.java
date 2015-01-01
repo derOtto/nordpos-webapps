@@ -26,7 +26,7 @@ public class Application {
 
     public enum ApplicationProjectURL {
 
-        NORDPOS("http://github.com/nordpos/nordpos"),
+        NORDPOS("http://sourceforge.net/projects/nordpos"),
         OPENBRAVOPOS("http://sourceforge.net/projects/openbravopos/"),
         UNICENTAOPOS("http://sourceforge.net/projects/unicentaopos/"),
         WANDAPOS("http://sourceforge.net/projects/wandaposdapos/");

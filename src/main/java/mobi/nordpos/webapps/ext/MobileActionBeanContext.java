@@ -14,7 +14,7 @@
  * the License.
  */
 package mobi.nordpos.webapps.ext;
-;
+
 import net.sourceforge.stripes.action.ActionBeanContext;
 
 /**

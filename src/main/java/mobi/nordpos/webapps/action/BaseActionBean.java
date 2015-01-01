@@ -43,7 +43,6 @@ public abstract class BaseActionBean implements ActionBean {
     private static final String DB_USER = "db.user";
     private static final String DB_PASSWORD = "db.password";
     private static final String DB_APP = "db.application.id";
-    private static final String BARCODE_PREFIX = "barcode.prefix";
 
     private MobileActionBeanContext context;
     private Application application;
